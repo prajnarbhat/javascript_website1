@@ -1,0 +1,29 @@
+<html>
+    <head></head>
+<body>
+    <script>
+        function palindrome(num){
+            // Convert the number to a string
+            let numStr = num.toString();
+            
+            // Split the string into an array of characters, reverse the array, and join it back into a string
+            let reverse = numStr.split('').reverse().join('');  // Fix here: join without commas
+            
+            // Compare the original string with the reversed string
+            return numStr === reverse;
+        }
+
+        // Test the palindrome function
+        console.log(palindrome(121));  // Output: true
+        console.log(palindrome(123));  // Output: false
+    </script>
+</body>
+</html>
+
+//so while doing pallindrome
+//1st nned to convert the number to string as we cannot directly reverse a number
+//so 1st conert num to string
+//then useing split convert the string to array of characters
+//as array of characters has the property to reverse not the string
+//so then reverse array
+//then use join , join is used to convert the array back to string

@@ -1,0 +1,115 @@
+<html>
+    <head>
+        <title>Task List</title>
+        <style>
+            .heading{
+                background-color: blue;
+                color:white;
+                width:100%;
+                text-align:center;
+                align-items: center;
+                height:100px;
+                
+            }
+            #head{
+                text-align: center;
+                line-height: 100px;
+            }
+            main{
+                padding:50px;
+                align-items: center;
+                text-align:center;
+                padding-top: 20px;   
+
+                padding-bottom: 20px; 
+
+                padding-left: 40px;   
+
+                padding-right: 40px;  
+                display:flex;
+                gap:10px;
+                
+            }
+            /* .task-form{
+                display:flex;
+                gap: 10px;
+            } */
+            #task-list {
+                border: 1px solid #ddd;
+                padding: 10px;
+            }
+            .tasks{
+                display:flex;
+                background-color: grey;
+                text-align:center;
+                justify-content: space-between;
+                align-items: center;
+                border-radius: 5px;            
+            }
+        </style>
+    </head>
+    <body>
+        <div class="heading">
+            <h1 id="head">Task Scheduler</h1>
+        </div>
+        <main>
+        <div class="task-form">
+            <input id="text" type="text" placeholder="Enter task"/>
+            <select name="task" id="task">
+               
+                <option value="Low">Low</option>
+                <option value="High">High</option>
+                <option value="Medium">Medium</option>
+            </select>
+            <input type="date" id="start" name="trip-start" value="dd/mm/yyyy"/>
+            <button id="add-task">Add Task</button>
+
+        </div>
+    </main>
+        <div  id="task-list">
+
+        </div>
+        <script>
+            let textinput=document.getElementById("text")
+            let priorityinput=document.getElementById("task")
+            let dateinput=document.getElementById("start")
+
+            let bt=document.getElementById("add-task")
+
+            let taskList=document.getElementById("task-list")
+            
+
+            bt.addEventListener('click', function() {
+                text=textinput.value;
+                priority=priorityinput.value;
+                date=dateinput.value;
+
+                if(text.trim === "" ||  priority === ""){
+                    alert("Please select an upcoming date for the deadline.")
+                    return; // Don't add task if task or deadline is empty 
+                }
+
+                const taskItem=document.createElement("div")
+                taskItem.classList.add("tasks")
+                taskItem.innerHTML=`
+                <p>${text}</p>
+                <p>priority: ${priority}</p>
+                <p>date: ${date}</p>`
+                taskList.appendChild(taskItem)
+
+                textinput.value = "";
+                priorityinput.value = "top";
+                dateinput.value = "";
+
+
+            })
+
+
+            
+
+
+
+
+            </script>
+    </body>
+</html>

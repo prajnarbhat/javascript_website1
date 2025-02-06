@@ -1,0 +1,158 @@
+<html>
+    <head>
+        <title>Health Challenge tracker</title>
+        <style>
+        
+            .heading{
+                text-align: center;
+            }
+            
+            .box{
+                text-align: center;
+                display:flex;
+                gap:10px;
+                justify-content: center;
+            }
+        
+            button{
+                border-radius: 100px;
+                background-color: #4CAF50;
+                color: blue;
+                padding: 14px 20px;
+                margin: 8px 0;
+                border: none;
+                cursor: pointer;
+                background-color: lightgray;
+                border-radius: 100px;
+            }
+             #box1,#box2{
+                display:flex;
+                background-color: lightgray;
+                flex-direction: column;
+                padding: 14px 20px;
+                width:200px;
+                text-decoration: none;
+                
+                
+             }
+    
+             input,select{
+                
+                border: none;
+                background-color: lightgray;
+            }
+            .navcontent{
+                display:flex;
+                gap:10px;
+                justify-content:center
+                
+            }
+            table{
+                text-align: center;
+                
+                font-weight: normal;
+                font-size: 12px;
+                border: 0px;
+                border-spacing: 7px;
+            }
+            .chartMenu {
+                width: 100vw;
+                height: 40px;
+                background: #1A1A1A;
+                color: rgba(54, 162, 235, 1);
+            }
+            .chartMenu p {
+                padding: 10px;
+                font-size: 20px;
+            }
+            .chartCard {
+                width: 100vw;
+                height: calc(100vh - 40px);
+                background: rgba(54, 162, 235, 0.2);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+            .chartBox {
+                width: 700px;
+                padding: 20px;
+                border-radius: 20px;
+                border: solid 3px rgba(54, 162, 235, 1);
+                background: white;
+            }
+        </style>
+
+    </head>
+    <body>
+    <div class="container">
+        <div class="heading">
+            <h1>Health Challenge tracker</h1>
+        </div>
+        <form style="text-align: center;"> 
+            <div id="box1">
+                <label for="username" value="User Name">User Name</label>
+                <input type="text" id="username" value="Smith" required>
+            </div>
+            <br>
+            <div class="box">
+            <div id="box2">
+                <label for="wortkouttype" value="WorkOut Type">WorkOut Type</label>
+                <select name="workouttype" id="workouttype">
+                    <option value="Cycling">Cycling</option>
+                    <option value="Running">Running</option>
+                    <option value="Swimming">Swimming</option>
+                    <option value="yoga">yoga</option>
+                </select>
+            </div>
+            <br>
+            <div id="box2">
+                <label for="wortkoutmin" value="WorkOut Min">WorkOut Min</label>
+                <input type="text" id="workoutmin" value="60" required>
+            </div>  
+        </div>         
+                <br>
+                <button type="submit" class="btn btn-primary btn-block" id="addbtn">Add Workout</button>
+        </form>
+
+     <div class="container">
+    <div class="navcontent">
+        <input type="text" placeholder="Search">
+        <br></br>
+        <div id="box1">
+            <label for="username" value="Filter by Workout Type">Filter by Workout Type</label>
+            <select name="workouttype" id="workouttype">
+                <option value="All">All</option>
+                <option value="Cycling">Cycling</option>
+                <option value="Running">Running</option>
+                <option value="Swimming">Swimming</option>
+                <option value="yoga">yoga</option>
+            </select>
+        </div>
+    </div>
+    <br></br>
+    <div class="tablecontent">
+        <table class="table table-bordered" id="animal" width="100%" cellspacing="0">
+            <tr>
+                <th>Name</th>
+                <th>workouttype</th>
+                <th>Number of Workouts</th>
+                <th>workoutmin</th>
+            </tr>
+        </table>
+
+    </div>
+    </div>
+
+    </div>
+    <div class="chartMenu">
+        <p>WWW.CHARTJS3.COM (Chart JS <span id="chartVersion"></span>)</p>
+      </div>
+      <div class="chartCard">
+        <div class="chartBox">
+          <canvas id="myChart"></canvas>
+        </div>
+      </div>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
+    <script src="script.js"></script>
+    </body>
+</html>

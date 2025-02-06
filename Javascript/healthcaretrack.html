@@ -1,0 +1,86 @@
+<html>
+    <head>
+        <title>Health Tracker using html,css,js</title>
+    </head>
+    <body>
+        <div class="app">
+            <h1>Geeks For Geeks</h1>
+            <h3>Helath Tracker App</h3>
+            <div class="inputs">
+                <div>
+                    <label for="water">Water Intake</label>
+                    <input id="water" type="number">
+                </div>
+                <div>
+                    <label for="exercise">Exercise Duration(in min)</label>
+                    <input id="exercise" type="number">
+                </div>
+                <div>
+                    <label for="bloodsugerlevel">
+                          Blood Sugar Level (in mg/dL)
+                      </label>
+                    <input id="bloodsugerlevel" type="number">
+                </div>
+
+            </div>
+            <button id="submit">Submit</button>
+            <div id="editSection" class="hidden">
+                <button id="cancelEdit" onclick="cancelEdit()">
+                      Cancel
+                  </button>
+                <button id="updateEntry" onclick="editRow()">
+                      Update
+                  </button>
+            </div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Date</th>
+                        <th>Water Intake <br> (in ml)</th>
+                        <th>Exercise Duration <br> (in min)</th>
+                        <th>Blood Sugar Level <br> (in mg/dL)</th>
+                        <th>Edit</th>
+                        <th>Delete</th>
+                    </tr>
+                </thead>
+                <tbody id="output">
+                </tbody>
+            </table>
+        </div>
+        <script src=
+"https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/js/all.min.js"
+            integrity=
+"sha512-GWzVrcGlo0TxTRvz9ttioyYJ+Wwk9Ck0G81D+eO63BaqHaJ3YZX9wuqjwgfcV/MrB2PhaVX9DkYVhbFpStnqpQ=="
+            crossorigin="anonymous" referrerpolicy="no-referrer">
+      </script>
+    <script>
+        const editIcon=`<i class="fas fa-edit"></i>`
+
+        const deleteIcon=`<i class="fas fa-trash"></i>`
+        const wInput = document.getElementById("water")
+        const eInput = document.getElementById("exercise")
+        const bInput = document.getElementById("bloodsugerlevel")
+
+        const submitButton = document.getElementById("submit")
+        const editSection = document.getElementById("editSection")
+
+        //clearing all input values
+        function clearInputs(){
+            wInput.value=""
+            eInput.value=""
+            bInput.value=""
+        }
+        function addToLocalStorage(){
+            localStorage.setItem("date",JSON.stringify(date))
+            localStorage.setItem("water",JSON.stringify(water))
+            localStorage.setItem("exercise",JSON.stringify(exercise))
+            localStorage.setItem("bloodsugar", JSON.stringify(bloodsugar))
+        }
+
+
+
+
+    </script>
+
+    </body>
+</html>

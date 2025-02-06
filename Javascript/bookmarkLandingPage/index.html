@@ -1,0 +1,127 @@
+<html>
+    <head>
+        <title>Book Mark </title>
+        <style>
+            .header{
+                width:100%;
+                background-color: black;
+                text-align: center;
+                height:100px;
+                line-height: 100px;
+
+
+            }
+            .header h1{
+                color:white;
+            }
+            form{
+                text-align: center;
+            }
+            #urlinput ,#addBookmarkbutton ,#deleteallbutton{
+                height:30px;
+            }
+            form input{
+                border: 1px solid black;
+                width:300px;
+            }
+
+        </style>
+    </head>
+    <body>
+    <main>
+        <div class="header">
+            <h1>My BookMark</h1>
+        </div>
+        <br></br>
+        <div class="container">
+            <form>
+                <div class="content">
+                <input type="url" name="url" id="urlinput" placeholder="Enter URL" size="50" pattren="https://.*" required></input> 
+                <button id="addBookmarkbutton" style="background-color:blue;color:white">Add BookMark</button>
+                <button id="deleteallbutton"  style="background-color:red;color:white">Delete All BookMark</button>
+                </div>
+            </form>
+        </div>
+        <div class="bookmarks">
+            <ul id="bookmarkList">
+                
+
+            </ul>
+            
+        </div>
+    </main>
+    <script>
+        const urlinput1=document.getElementById("urlinput")
+        const deleteallbutton=document.getElementById("deleteallbutton")
+        const addBookmarkbutton=document.getElementById("addBookmarkbutton")
+        const bookmarkList=document.getElementById("bookmarkList")
+
+        function isValidURL(url){
+            const pattren= /^(https?:\/\/)?([\w-]+\.)+[\w-]+(\/[\w- .\/?%&=]*)?$/;
+            return pattren.test(url);
+        }
+        addBookmarkbutton.addEventListener(
+            "click", () => {
+                const url=urlinput1.value.trim();
+                if(isValidURL(url)){
+                    const bookmarkItem=document.createElement("li")
+                    bookmarkItem.classList.add("bookmark-item")
+                    bookmarkItem.innerHTML=
+                    `<a href="${url}" target="_blan">${url}</a>
+                    <div class="buttons">
+                        <button class="edit">Edit</button>
+                        <button class="delete">Delete</button>
+                    </div>
+                    `
+                    bookmarkList.appendChild(bookmarkItem)
+                    urlinput.value=""
+                    addEditBookmarkListener(bookmarkItem)
+                    addDeleteBookmarkListener(bookmarkItem)
+
+                }
+                else{
+                    alert("please ener valid url")
+                }       
+
+            }         
+        )
+
+        deleteallbutton.addEventListener("click",()=>{
+            while(bookmarkList.firstChild){
+                bookmarkList.removeChild(bookmarkList.firstChild)
+            }
+        });
+
+        function addEditBookmarkListener(bookmarkItem){
+            const editButton = bookmarkItem.querySelector(".edit");
+            const bookmarkLink = bookmarkItem.querySelector("a");
+            editButton.addEventListener(
+                "click", () => {
+                    const newUrl=prompt("Edit the url",bookmarkLink.getAttribute("href"))
+                    if(newUrl && isValidURL(newUrl)){
+                       bookmarkLink.setAttribute("href",newUrl)
+                       bookmarkLink.innerHTML=newUrl;
+                    }
+                    else if(newUrl){
+                        alert("please enter valid URL")
+                    }
+
+                })
+        }
+        function addDeleteBookmarkListener(bookmarkItem){
+            const deleteButton=bookmarkItem.querySelector(".delete")
+            deleteButton.addEventListener("click",()=>{
+                bookmarkItem.remove(); 
+            })
+        }
+
+
+
+
+
+
+
+        
+    </script>
+    </body>
+</html>

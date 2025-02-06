@@ -1,0 +1,9 @@
+JavaScript var
+This keyword is used to declare variables globally. If you use this keyword to declare a variable then the variable can be accessible globally and changeable also.
+
+var variableName = "Variable-Value;"
+
+Let:
+JavaScript let
+This keyword is used to declare variables locally. If you use this keyword to declare a variable then the variable can be accessible locally and it is changeable as well.
+

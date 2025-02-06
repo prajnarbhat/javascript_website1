@@ -1,0 +1,69 @@
+<html>
+    <head>
+        
+    </head>
+    <body>
+        <div class="gfg">GeeksForGeeks</div>
+        <h2>User Blocking Application</h2>
+        <input type="text" id="userInput" placeholder="Enter username">
+        <button onclick="blockUser()">Block User</button>
+        <ul id="blockedList"></ul>
+
+
+        <script>
+            const blockList=[];
+            function blockUser(){
+                const userInput=document.getElementById('userInput')
+                const userName=userInput.value.trim()
+                if(userName!='' && !blockList.includes(userName)){
+                    blockList.push(userName)
+                    displayBlockedList()
+                }
+                else if(blockList.includes(userName)){
+                    alert("user already blocked!")    
+                }
+                else if(userName == ''){
+                    alert("please enter username")
+                }
+                userInput.value=''
+            }
+            function displayBlockedList(){
+                const listContainer=document.getElementById('blockedList');
+                listContainer.innerHTML=''
+                blockList.forEach(user =>{
+                    const listItem=document.createElement('li')
+                    listItem.textContent=user;
+                    listContainer.appendChild(listItem)
+
+                })
+            }
+            function unblockUser(index){
+                //remove the user from the blocklist array remove based on particular index
+                blockList.splice(index,1)
+                //now dispaly the updated blockList
+                displayBlockedList();
+            }
+            function displayBlockedList(){
+                const listContainer=document.getElementById('blockedList')
+
+                listContainer.innerHTML=''
+
+                blockList.forEach((user,index)=>{
+                    const listItem=document.createElement('li');
+                    listItem.textContent=user
+                    listItem.className='blockeduser';
+                    const unblockButton=document.createElement('button')
+                    unblockButton.textContent='Unblock';
+                    unblockButton.className='unblockbutton';
+                    unblockButton.onclick=function(){
+                        unblockUser(index)
+                    }
+                    listItem.appendChild(unblockButton);
+                    listContainer.append(listItem)
+
+                })
+            }
+
+        </script>
+    </body>
+</html>

@@ -1,0 +1,78 @@
+<html>
+    <head>
+        <title>Expense Managment</title>
+        <style>
+            body{
+                font-family: Arial, sans-serif;
+                background-color: #f0f0f0;
+                margin: 0;
+                padding: 0;
+            }
+            .container{
+                margin:50px auto;
+                padding: 20px;
+                background-color: #fff;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+                border-radius: 8px;
+            }
+            h1 {
+                text-align: center;
+                margin-bottom: 20px;
+            }
+            form {
+                display:flex;
+                gap:10px;
+                margin-bottom: 20px;
+            }
+
+
+            
+        </style>
+    </head>
+    <body>
+    <div class="container">
+        <form>
+            <div class="heading">
+                <h1>Expense Tracker</h1>
+            </div>
+            <input type="text" placeholder="Expense Name" required>
+            <input type="number" placeholder="Amount" required>
+            <select class="select">
+                <option value="food">Food</option>
+                <option value="food">Transport</option>
+                <option value="food">Goods</option>
+            </select>
+            <input type="date" value="dd-mm-yyyy"/>
+            <button type="button">Add Expense</button>
+        </form>
+        <div class="expense-table">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Expense Name</th>
+                        <th>Amount</th>
+                        <th>Category</th>
+                        <th>Date</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody id="expense-list"></tbody>
+            </table>
+            <div class="total-amount">
+                <strong>Total:</strong>$<span id="total-amount">0</span>
+            </div>
+        </div>
+        <div class="filter">
+            <label for="filter-category">Filter by Category:</label>
+            <select id="filter-category">
+                <option value="food">Food</option>
+                <option value="food">Transport</option>
+                <option value="food">Goods</option>
+            </select>
+        </div>
+    </div>
+    <script src="script.js"></script>
+
+
+    </body>
+</html>

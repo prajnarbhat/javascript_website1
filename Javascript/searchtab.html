@@ -1,0 +1,68 @@
+<html>
+    <head>
+        <title>Search Tab Working</title>
+        <style>
+            #mySearch{
+               width:100%;
+               font-size:18px;
+               padding:11px;
+               border:1px solid black; 
+            }
+            #myMenu{
+                list-style-type:none;
+                padding:0;
+                margin:0;
+            }
+            #myMenu li a {
+            padding: 12px;
+            text-decoration: none;
+            color: black;
+            display: block
+            }
+            #myMenu li a:hover {
+            background-color: #eee;
+            }
+
+        </style>
+    </head>
+
+    <body>
+        <div class="row">
+            <h2>Menu</h2>
+        <input type="text" id="mySearch" onkeyup="myFunction()" placeholder="Search">
+        <ul id="myMenu">
+            <li><a href="#">HTML</a></li>
+            <li><a href="#">CSS</a></li>
+            <li><a href="#">JAVASCRIPT</a></li>
+            <li><a href="#">PYTHON</a></li>
+            <li><a href="#">JQUERY</a></li>
+        </ul>
+    </div>
+    <script>
+        function myFunction(){
+            var input,filter,ul,li,a,i;
+            input=document.getElementById("#mySearch")
+            filter=input.value.toUpperCase();
+            ul=document.getElementById("myMenu")
+            li=ul.getElementsByTagName("li")
+            for(i=0;i<li.length;i++){
+                //inside the li get the first tag anchor element
+                a=li[i].getElementsByTagName("a")[0];
+                //a.innerHtml to get the contents inside the tag element
+                if(a.innerHTML.toUpperCase().indexOf(filter)>-1){
+                    li[i].style.display = "";
+                }
+                else{
+                    li[i].style.display = "none";
+                }
+
+            }
+
+
+        }
+
+    </script>
+
+
+    </body>
+</html>

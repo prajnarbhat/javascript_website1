@@ -1,0 +1,18 @@
+<html>
+    <body>
+        <p>Buttton clicking</p>
+        <button onclick="myfunction()">Try it</button>
+
+        <p id="demo"></p>
+        <script>
+            const f=["a","b","c"];
+            document.getElementById("demo").innerHTML=f;
+
+            function myfunction(){
+                f.push("d");
+                document.getElementById("demo").innerHTML=f;
+            }
+           
+        </script>
+    </body>
+</html>

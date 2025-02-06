@@ -1,0 +1,56 @@
+<html>
+    <head>
+        <title>Expanding Cards</title>
+        <style>
+            .container{
+    display: flex;
+    width: 80%;
+}
+            .one{
+                background: url(image1.jpeg);
+            }
+            .two{
+                background: url(image2.jpeg);
+            }
+            .three{
+                background: url(image3.jpeg);
+            }
+            .section{
+                background-size: cover;
+                background-position: center;
+                background-repeat: no-repeat;
+                height: 80vh;
+                cursor: pointer;
+                flex: 0.2;
+                margin:8px;
+                position: relative;
+                transition: all 0.7s ease-out;
+                } 
+                .section.active{
+                     flex: 3;
+                    }
+
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <div class="section one active"></div>
+            <div class="section two"></div>
+            <div class="section three"></div>
+        </div>
+        <script>
+            const sections=document.querySelector('.section');
+            console.log(sections);
+            sections.forEach((section)=>{
+                console.log(sections);
+                section.addEventListener('click',()=>{
+                    sections.forEach((section)=>{
+                        section.classList.remove('active')
+                    })
+                    section.classList.add('active')
+                })
+            })
+        </script>
+
+    </body>
+</html>

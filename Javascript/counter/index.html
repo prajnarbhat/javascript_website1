@@ -1,0 +1,52 @@
+<html>
+    <head>
+        <title>Counter part</title>
+        <style>
+            body{
+                text-align:center;
+            }
+        </style>
+    </head>
+    <body>
+
+    <div class="container">
+        <h1 class="counter">Conter</h1>
+        <span id="value">0</span>
+        <div class="btnclass">
+            <button class="btn decreaseBtn">DECREASE</button>
+            <button class="btn resetBtn">RESET</button>
+            <button class="btn increaseBtn">INCREASE</button>
+        </div>
+    </div>
+        <script>
+            let count=0;
+            const countvalue=document.querySelectorAll("#value")
+            const btns=document.querySelectorAll(".btn")
+
+            btns.forEach(function(btn){
+                btn.addEventListener("click",function(e){
+                    const styles=e.currentTarget.classList;
+                    console.log("styles",styles)
+                    if(styles.contains('decreaseBtn')){
+                        count--;
+                    }else if(styles.contains('increaseBtn')){
+                        count++;
+                    }
+                    else{
+                        count=0;
+                    }
+                    if(count>0){
+                        value.style.color="green"
+                    }
+                    if(count<0){
+                        value.style.color="red"
+                    }
+                    value.textContent=count;
+
+                })
+            })
+
+            console.log(btns)
+        </script>
+    </body>
+</html>
